@@ -13,9 +13,8 @@ int main() {
 	st2.mark = 9.99;
 	st2.alive = false;
 
-	Student st = st1.mark > st2.mark ? st1 : st2;
-
-	cout << "Best student: " << st.name << endl;
+	cout << st1.getString();
+	cout << st2.getString();
 
 	return 0;
 }
