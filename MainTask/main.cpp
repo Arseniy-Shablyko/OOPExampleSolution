@@ -8,10 +8,10 @@ int main() {
 
 	Student student5(student4);
 
-	cout << student1.toString() << endl;
-	cout << student2.toString() << endl;
-	cout << student3.toString() << endl;
-	cout << student4.toString() << endl;
+	cout << endl << student1.toString();
+	cout << student2.toString();
+	cout << student3.toString();
+	cout << student4.toString();
 	cout << student5.toString() << endl;
 
 	/*cout << "Before: " << student1.toString() << endl;*/

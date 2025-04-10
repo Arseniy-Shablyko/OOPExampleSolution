@@ -41,12 +41,17 @@ public:
 		alive = al;
 	}
 
-	Student(Student student) {
+	Student(const Student& student) {
 		cout << "copy-constructor" << endl;
 		name = student.name;
 		age = student.age < 13 ? 13 : student.age;
 		mark = student.mark;
 		alive = student.alive;
+	}
+
+	~Student() {
+		cout << "destructor" << endl;
+		
 	}
 
 	string toString() {
