@@ -41,6 +41,14 @@ public:
 		alive = al;
 	}
 
+	Student(Student student) {
+		cout << "copy-constructor" << endl;
+		name = student.name;
+		age = student.age < 13 ? 13 : student.age;
+		mark = student.mark;
+		alive = student.alive;
+	}
+
 	string toString() {
 		string s = "Name: " + name;
 		s += ", age: " + to_string(age);
