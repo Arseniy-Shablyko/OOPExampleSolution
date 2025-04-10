@@ -10,11 +10,35 @@ public:
 	bool alive;
 
 	Student(){
-		cout << "defualt-constructor";
+		cout << "defualt-constructor" << endl;
 		name = "no name";
 		age = 13;
 		mark = 4.0;
 		alive = true;
+	}
+
+	Student(string nm) {
+		cout << "constructor with arguments (name)" << endl;
+		name = nm;
+		age = 13;
+		mark = 4.0;
+		alive = true;
+	}
+
+	Student(string nm, int a) {
+		cout << "constructor with arguments (name)" << endl;
+		name = nm;
+		age = a < 13 ? 13 : a;
+		mark = 4.0;
+		alive = true;
+	}
+
+	Student(string nm, int a, double m, bool al) {
+		cout << "constructor with arguments (name)" << endl;
+		name = nm;
+		age = a < 13 ? 13 : a;
+		mark = m;
+		alive = al;
 	}
 
 	string toString() {
