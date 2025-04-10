@@ -9,7 +9,15 @@ public:
 	double mark;
 	bool alive;
 
-	string getString() {
+	Student(){
+		cout << "defualt-constructor";
+		name = "no name";
+		age = 13;
+		mark = 4.0;
+		alive = true;
+	}
+
+	string toString() {
 		string s = "Name: " + name;
 		s += ", age: " + to_string(age);
 		s += ", average mark: " + to_string(mark);
