@@ -6,61 +6,74 @@ class Student {
 public:
 	string name;
 	int age;
-	double mark;
+	int* marks;
+	int countMarks;
 	bool alive;
 
-	Student(){
+	Student() : Student("no name", 13, 0, true){
 		cout << "defualt-constructor" << endl;
 		name = "no name";
 		age = 13;
-		mark = 4.0;
+		countMarks = 0;
+		marks = nullptr;
 		alive = true;
 	}
 
-	Student(string nm) {
+	Student(string name): Student(name, 13) {
 		cout << "constructor with arguments (name)" << endl;
-		name = nm;
-		age = 13;
-		mark = 4.0;
-		alive = true;
 	}
 
-	Student(string nm, int a) {
+	Student(string name, int age) : Student(name, age, 0, true) {
 		cout << "constructor with arguments (name)" << endl;
-		name = nm;
-		age = a < 13 ? 13 : a;
-		mark = 4.0;
-		alive = true;
 	}
 
-	Student(string nm, int a, double m, bool al) {
+	Student(string name, int age, int countMark, bool alive) {
 		cout << "constructor with arguments (name)" << endl;
-		name = nm;
-		age = a < 13 ? 13 : a;
-		mark = m;
-		alive = al;
+		this->name = name;
+		this->age = age < 13 ? 13 : this->age;
+		this->countMarks = countMark;
+		this->marks = new int[countMark] {};
+		for (int i = 0; i < countMark; i++) {
+			marks[i] = 4;
+		}
+		this->alive = this->alive;
 	}
 
-	Student(const Student& student) {
+	Student(const Student& student)
+		: Student(student.name, student.age, student.countMarks, student.alive){
 		cout << "copy-constructor" << endl;
-		name = student.name;
-		age = student.age < 13 ? 13 : student.age;
-		mark = student.mark;
+
+		for (int i = 0; i < countMarks; i++) {
+			marks[i] = student.marks[i];
+		}
+
 		alive = student.alive;
 	}
 
 	~Student() {
 		cout << "destructor" << endl;
-		
+		if (countMarks != 0) {
+			delete[] marks;
+		}
 	}
 
-	string toString() {
-		string s = "Name: " + name;
+	string convert() {
+		string s = "";
+
+		for (int i = 0; i < countMarks; i++) {
+			s += to_string(marks[i]) + " ";
+		}
+	}
+
+	string tostring() {
+		string s = "name: " + name;
 		s += ", age: " + to_string(age);
-		s += ", average mark: " + to_string(mark);
+		s += ", marks: " + convert();
 		s += ", alive: ";
-		s += alive ? "Yes" : "No";
+		s += alive ? "yes" : "no";
 		s += "\n";
 		return s;
 	}
+
+
 };
