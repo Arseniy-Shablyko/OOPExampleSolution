@@ -119,6 +119,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Initilazer.h" />
     <ClInclude Include="Students.h" />
   </ItemGroup>
   <ItemGroup>
