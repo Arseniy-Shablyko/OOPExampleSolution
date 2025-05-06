@@ -58,11 +58,20 @@ public:
 	}
 
 	string convert() {
-		string s = "";
+		string s = "[";
 
-		for (int i = 0; i < countMarks; i++) {
-			s += to_string(marks[i]) + " ";
+		if (this->countMarks > 0) {
+			for (int i = 0; i < this->countMarks - 1; i++)
+			{
+				s += to_string(this->marks[i]) + ", ";
+			}
+
+			s += to_string(this->marks[this->countMarks - 1]);
 		}
+
+		s += "]";
+
+		return s;
 	}
 
 	string tostring() {
